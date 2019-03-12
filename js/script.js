@@ -2,9 +2,8 @@
 Treehouse Techdegree:
 FSJS project 2 - List Filter and Pagination
 ******************************************/
-   
-// Study guide for this project - https://drive.google.com/file/d/1OD1diUsTMdpfMDv677TfL1xO2CEkykSz/view?usp=sharing
 
+// Study guide for this project - https://drive.google.com/file/d/1OD1diUsTMdpfMDv677TfL1xO2CEkykSz/view?usp=sharing
 
 /*** 
    Add your global variables that store the DOM elements you will 
@@ -17,8 +16,65 @@ FSJS project 2 - List Filter and Pagination
    scoped to that function.
 ***/
 
+const studentListContainer = document.querySelector('.student-list-container');
 
+const studentListElements = [
+  {
+    elementType: 'ul',
+    classes: ['student-list'],
+    name: 'studentList',
+    parent: 'studentListContainer',
+  },
+  {
+    elementType: 'li',
+    classes: ['student-item', 'cf'],
+    name: 'studentItem',
+    parent: 'studentList',
+  },
+  {
+    elementType: 'div',
+    classes: ['student-details'],
+    name: 'studentDetails',
+    parent: 'studentItem',
+  },
+  {
+    elementType: 'img',
+    classes: ['avatar'],
+    name: 'studentImg',
+    parent: 'studentDetails',
+  },
+  {
+    elementType: 'h3',
+    classes: [],
+    name: 'studentName',
+    parent: 'studentDetails',
+  },
+  {
+    elementType: 'span',
+    classes: ['email'],
+    name: 'studentEmail',
+    parent: 'studentDetails',
+  },
+  {
+    elementType: 'div',
+    classes: ['joined-details'],
+    name: 'joinedDetails',
+    parent: 'studentItem'
+  },
+  {
+     elementType: 'span',
+     classes: ['date'],
+     name: 'date',
+     parent: 'joinedDetails'
+  }
+];
 
+studentListElements.forEach( element => {
+   const { elementType, classes, name, parent } = element;
+   const node = document.createElement(elementType);
+   node.className = classes.join(' ');
+   parent.appendChild(node);
+})
 
 /*** 
    Create the `showPage` function to hide all of the items in the 
@@ -35,16 +91,9 @@ FSJS project 2 - List Filter and Pagination
        "invoke" the function 
 ***/
 
-
-
-
 /*** 
    Create the `appendPageLinks function` to generate, append, and add 
    functionality to the pagination buttons.
 ***/
-
-
-
-
 
 // Remember to delete the comments that came with this file, and replace them with your own code comments.
